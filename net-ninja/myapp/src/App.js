@@ -18,7 +18,7 @@ class App extends Component {
     //let ninjas = [...this.state.ninjas, ninja];
     this.setState({
       ninjas: [...this.state.ninjas, ninja]
-    })
+    });
   }
   deleteNinja = (id) => {
     let ninjas = this.state.ninjas.filter(ninja => {
@@ -26,7 +26,14 @@ class App extends Component {
     });
     this.setState({
       ninjas: ninjas
-    })
+    });
+  }
+  componentDidMount() {
+    console.log('component mounted');
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log('component updated');
+    console.log(prevProps, prevState);
   }
   render() {
     return (
