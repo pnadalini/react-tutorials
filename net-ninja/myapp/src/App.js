@@ -14,14 +14,14 @@ class App extends Component {
     }
   }
   addNinja = (ninja) => {
-    ninja.id = Math.max.apply(Math, this.state.ninjas.map(function(ninja) { return ninja.id; }));
-    //let ninjas = [...this.state.ninjas, ninja];
+    const newNinja = {...ninja};
+    newNinja.id = Math.max.apply(Math, this.state.ninjas.map(function(ninja) { return ninja.id; })) + 1;
     this.setState({
-      ninjas: [...this.state.ninjas, ninja]
+      ninjas: [...this.state.ninjas, newNinja]
     });
   }
   deleteNinja = (id) => {
-    let ninjas = this.state.ninjas.filter(ninja => {
+    const ninjas = this.state.ninjas.filter(ninja => {
       return ninja.id !== id;
     });
     this.setState({
